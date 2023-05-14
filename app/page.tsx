@@ -1,3 +1,5 @@
+"use client"
+
 import Container from "@/app/components/Container";
 import EmptyState from "@/app/components/EmptyState";
 
@@ -14,6 +16,10 @@ import ClientOnly from "./components/ClientOnly";
 import Divider from "./components/ui/Divider";
 import Features from "./components/ui/Features";
 import BlogCard from "./components/blog/BlogCard";
+import Button from "./components/Button";
+import MenuItem from "./components/Navbar/MenuItem";
+import { AiOutlineMail } from "react-icons/ai";
+import router from "next/router";
 
 interface HomeProps {
   searchParams: IListingsParams
@@ -67,6 +73,7 @@ const Home = async ({ searchParams }: HomeProps) => {
                 ))}
               </section>
             </section>
+          
         <Divider />
       </Container>
     </ClientOnly>

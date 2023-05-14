@@ -5,48 +5,20 @@ import { useRouter } from "next/navigation";
 import { useCallback, useMemo } from "react";
 import { format } from 'date-fns';
 
-import useCountries from "@/app/hooks/useCountries";
 import { 
   SafeArticle, 
   SafeUser 
 } from "@/app/types";
 
-// import HeartButton from "../HeartButton";
-import Button from "../Button";
-import ClientOnly from "../ClientOnly";
-
 interface BlogCardProps {
   data: SafeArticle;
-  onAction?: (id: string) => void;
-  disabled?: boolean;
-  actionLabel?: string;
-  actionId?: string;
-  currentUser?: SafeUser | null
 };
 
 const MainCard: React.FC<BlogCardProps> = ({
   data,
-  onAction,
-  disabled,
-  actionLabel,
-  actionId = '',
-  currentUser,
 }) => {
   const router = useRouter();
-  const { getByValue } = useCountries();
 
-  const location = getByValue(data.locationValue);
-
-  const handleCancel = useCallback(
-    (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.stopPropagation();
-
-    if (disabled) {
-      return;
-    }
-
-    onAction?.(actionId)
-  }, [disabled, onAction, actionId]);
 
 
 
